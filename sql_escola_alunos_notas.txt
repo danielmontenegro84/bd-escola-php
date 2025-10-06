@@ -1,0 +1,36 @@
+1. **Criar um banco de dados (se ainda não existir):**
+
+```sql
+CREATE DATABASE escola;
+```
+
+2. **Selecionar esse banco para usar:**
+
+```sql
+USE escola;
+```
+
+3. **Agora sim criar a tabela `alunos`:**
+
+```sql
+CREATE TABLE alunos (
+    id_aluno INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
+```
+
+4. (Depois) criar a tabela `notas`:
+
+```sql
+CREATE TABLE notas (
+    id_nota INT AUTO_INCREMENT PRIMARY KEY,
+    id_aluno INT NOT NULL,
+    nota DECIMAL(5,2) NOT NULL,
+    FOREIGN KEY (id_aluno) REFERENCES alunos(id_aluno) ON DELETE CASCADE
+);
+```
+
+---
+
+👉 A ordem é sempre:
+**Criar banco → Usar banco → Criar tabelas → Inserir dados.**
